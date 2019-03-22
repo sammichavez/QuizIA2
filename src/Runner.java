@@ -8,10 +8,10 @@ public class Runner {
             System.out.println(z.text);
             z.answeredCorrectly = (z.answer == sc.nextInt());
 
-            //for testing!!!
+
             System.out.println(z.answeredCorrectly);
         }
-        //h
+
         //p.computeResult();
     }
 
