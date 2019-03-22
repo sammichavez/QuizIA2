@@ -15,7 +15,7 @@ public class QuestionGroup {
 //        easy[7] = new Question("");
 //        easy[8] = new Question("");
 //        easy[9] = new Question("");
-/        medium[0] = new Question("");
+//        medium[0] = new Question("");
 //        medium[0] = new Question("");
 //        medium[0] = new Question("");
 //        medium[0] = new Question("");
