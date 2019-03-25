@@ -1,7 +1,7 @@
 public class Question {
     String text;
     int answer;
-    boolean answeredCorrectly;
+    int answeredCorrectly = 0;
     int difficulty;
 
     public Question(String text, int answer, int difficulty) {

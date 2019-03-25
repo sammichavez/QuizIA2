@@ -29,7 +29,7 @@ public class QuestionGroup {
                 "he counted 74 heads and 196 legs. " +
                 "How many humans and horses were there? \n1(24 humans and 50 horses)\n2(24 horses and 50 humans)\n3(31 horses and 74 humans)" ,
                 1, 3  );
-       hard[1] = new Question("What is 10*9*8*7*6*5*4*3*2*1? \n1(10! or 3628800)\n2(10^10)\n3(1000)" , 1 , 3);
+        hard[1] = new Question("What is 10*9*8*7*6*5*4*3*2*1? \n1(10! or 3628800)\n2(10^10)\n3(1000)" , 1 , 3);
         hard[2] = new Question("If x*x-2x-35=0then x=? \n1(8)\n2(4)\n3(7)" , 3 , 3);
         //hard[3] = new Question("");
         //hard[4] = new Question("");
@@ -40,12 +40,62 @@ public class QuestionGroup {
         //hard[9] = new Question("");
     }
 
-    public QuestionGroup() {
-
-        createQuestion();
-    }
 
     public Question determineQuestion() {
-        return hard [0];
+        for (int i = 0; i < gameLength; i++) {
+            if (easy[i].answeredCorrectly == 2) {
+                return getNextOfType(2);
+            }
+            if (easy[i] != answeredCorrectly) {
+                return getNextOfType(1);
+            }
+            if (medium[i].answeredCorrectly == 2) {
+                return getNextOfType(3);
+            }
+            if (medium[i] != answeredCorrectly) {
+                return getNextOfType(1);
+            }
+            if (hard[i].answeredCorrectly == 2) {
+                return getNextOfType(3);
+            }
+            if (hard[i] != answeredCorrectly) {
+                return getNextOfType(2);
+            }
+        }
+    }
+
+     public Question getNextOfType(int type) {
+
+         if (type == 1) {
+             for (int i = 0; i < easy.length; i++) {
+                 if (easy[i].answeredCprrectly == 0) {
+                     return easy[i];
+                 }
+             }
+         }
+         if (type == 2) {
+             for (int i = 0; i < medium.length; i++) {
+                 if (easy[i].answeredCprrectly == 0) {
+                     return medium[i];
+                 }
+             }
+         }
+         if (type == 3) {
+             for (int i = 0; i < hard.length; i++) {
+                 if (easy[i].answeredCprrectly == 0) {
+                     return hard[i];
+                 }
+             }
+         }
+     }
+         public String computeResult(){
+        int easyCorrect = 0;
+
+        for(int i = 0; i< easy.length; i++ ){
+            if(easy[i].answeredCorrectly == 2){
+                easyCorrect++;
+            }
+        }
+        System.out.println("You got" + easyCorrect "/" + easy.length + "questions right");
     }
 }

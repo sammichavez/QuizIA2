@@ -6,20 +6,15 @@ public class Runner {
         for (int i = 0; i < p.gameLength; i++) {
             Question z = p.determineQuestion();
             System.out.println(z.text);
-            z.answeredCorrectly = (z.answer == sc.nextInt());
 
+            int answer = sc.nextInt();
 
-            System.out.println(z.answeredCorrectly);
+            if (answer == z.answer) {
+                z.answeredCorectly = 2;
+            } else {
+                z.answeredCorrectly = 1;
+            }
         }
-
-        //p.computeResult();
-    }
-
-    public static void takeIt(Question[] questions) {
-        int score = 0;
-
-        Scanner keyboardInput = new Scanner(System.in);
-
-
+        p.computeResult();
     }
 }
