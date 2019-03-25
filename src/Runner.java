@@ -10,7 +10,7 @@ public class Runner {
             int answer = sc.nextInt();
 
             if (answer == z.answer) {
-                z.answeredCorectly = 2;
+                z.answeredCorrectly = 2;
             } else {
                 z.answeredCorrectly = 1;
             }
