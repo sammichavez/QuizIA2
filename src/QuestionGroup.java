@@ -1,3 +1,4 @@
+//1
 public class QuestionGroup {
     public Question[] easy = new Question[10];
     public Question[] medium = new Question[10];
@@ -11,7 +12,9 @@ public class QuestionGroup {
         createHard();
         determineQuestion();
     }
+//1
 
+    //2
     void createEasy() {
         easy[0] = new Question(" what is X in the equation, x + 1 = 9 ? \n1(8)\n2(6)\n3(5) ", 1, 1);
         easy[1] = new Question(" What is X in the equation, 17x - 12 = 114 + 3x ? \n1(9)\n2(3)\n3(6) ", 1, 1);
@@ -46,16 +49,19 @@ public class QuestionGroup {
                 1, 3);
         hard[1] = new Question("What is 10*9*8*7*6*5*4*3*2*1? \n1(10! or 3628800)\n2(10^10)\n3(1000)", 1, 3);
         hard[2] = new Question(" If x*x-2x-35=0then x=? \n1(8)\n2(4)\n3(7)", 3, 3);
-        hard[3] = new Question(" Given the equation , 5 (- 3 x - 2) - (x - 3) = - 4 (4 x + 5) + 13? \n1(0=0)\n2(3=34)\n3(2=40)" , 1 , 3);
-        hard[4] = new Question(" Given the algebraic expression , 2 (a -3) + 4 b - 2 (a - b - 3) + 5 ? \n1(6b + 5) \n2(3b + 4)\n 3(2b + 2)" , 1 , 3);
-        hard[5] = new Question(" Given the equation, 2 x - 4 y = 9 , solve for x when y is 0? \n1(9/2)\n2(6/3)\n3(4/2)" , 1 , 3);
-        hard[6] = new Question("Given the line 5x - 5y = 7 , Rewrite the equation in slope intercept form y = mx + b ? \n1(y = x - 7/5)\n2(y = x + 7/5)\n3(x = y + 7/5 " , 1 , 3);
-        hard[7] = new Question("The equation to solve is given by, |-2 x + 2| -3 = -3 ? \n1(2)\n2(1)\n3(3) " , 2 , 3);
-        hard[8] = new Question("Are you a good person?\n1(yes)\n2(no)\n3(Dont know)" , 1 , 3);
-        hard[9] = new Question(" is it realistic to own a Dino? \n1(yes)\n2(no)\n3(maybe)" , 2 , 3);
+        hard[3] = new Question(" Given the equation , 5 (- 3 x - 2) - (x - 3) = - 4 (4 x + 5) + 13? \n1(0=0)\n2(3=34)\n3(2=40)", 1, 3);
+        hard[4] = new Question(" Given the algebraic expression , 2 (a -3) + 4 b - 2 (a - b - 3) + 5 ? \n1(6b + 5) \n2(3b + 4)\n 3(2b + 2)", 1, 3);
+        hard[5] = new Question(" Given the equation, 2 x - 4 y = 9 , solve for x when y is 0? \n1(9/2)\n2(6/3)\n3(4/2)", 1, 3);
+        hard[6] = new Question("Given the line 5x - 5y = 7 , Rewrite the equation in slope intercept form y = mx + b ? \n1(y = x - 7/5)\n2(y = x + 7/5)\n3(x = y + 7/5 ", 1, 3);
+        hard[7] = new Question("The equation to solve is given by, |-2 x + 2| -3 = -3 ? \n1(2)\n2(1)\n3(3) ", 2, 3);
+        hard[8] = new Question("Are you a good person?\n1(yes)\n2(no)\n3(Dont know)", 1, 3);
+        hard[9] = new Question(" is it realistic to own a Dino? \n1(yes)\n2(no)\n3(maybe)", 2, 3);
     }
 
+//2
 
+
+    //3
     Question determineQuestion() {
         for (int i = 0; i < gameLength; i++) {
             if (easy[i].answeredCorrectly == 2) {
@@ -77,7 +83,11 @@ public class QuestionGroup {
                 return getNextOfType(2);
             }
         }
+        return ;
     }
+//3
+
+//4
 
     Question getNextOfType(int type) {
 
@@ -102,8 +112,11 @@ public class QuestionGroup {
                 }
             }
         }
+        return ();
     }
+//4
 
+    //5
     String computeResult() {
         int easyCorrect = 0;
         int mediumCorrect = 0;
@@ -124,8 +137,39 @@ public class QuestionGroup {
             }
         }
 
-        return ();
+    int score = easyCorrect + mediumCorrect + hardCorrect;
+
+        if(score ==27)
+
+    {
+        System.out.println("You have passed with flying colors, great job, be a scholar.");
 
     }
+        if(score >=18&&score< 27)
+
+    {
+        System.out.println("beyond average keep up the great work!!");
+    }
+        if(score< 18&&score >9)
+
+    {
+        System.out.println("You would have gotten a b for a lettered grade, try harder!!! ");
+    }
+        if(score <=9)
+
+    {
+        System.out.println("You would've gotten a C if this was a letter grade not acceptable.");
+    }
+        if(score ==0)
+
+    {
+        System.out.println("Math is not your best line of study, please try something else and go into another field!");
+    }
 }
+
+//5
+
+
+//6
+
 

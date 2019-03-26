@@ -1,3 +1,5 @@
+//6
+
 public class Question {
     String text;
     int answer;
@@ -10,3 +12,4 @@ public class Question {
         this.difficulty = difficulty;
     }
 }
+//6
