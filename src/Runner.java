@@ -13,8 +13,11 @@ public class Runner {
 
             if (answer == z.answer) {
                 z.answeredCorrectly = 2;
+                p.lastQuestionCorrect = true;
+                p.lastQuestionDifferent = z.difficulty;
             } else {
                 z.answeredCorrectly = 1;
+                p.lastQuestionCorrect = false;
             }
         }
         p.computeResult();

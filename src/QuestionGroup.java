@@ -4,16 +4,17 @@ public class QuestionGroup {
     public Question[] medium = new Question[10];
     public Question[] hard = new Question[10];
     int gameLength = 10;
-
+    int lastQuestionDifferent = 2;
+    boolean lastQuestionCorrect = false;
 
     public QuestionGroup() {
         createEasy();
         createMedium();
         createHard();
-        determineQuestion();
+        //determineQuestion();
     }
-//1
 
+//THESE ARE THE QUESTION THAT ARE PLACED AND CAN BE ASKED WHEN USER IS READY
     //2
     void createEasy() {
         easy[0] = new Question(" what is X in the equation, x + 1 = 9 ? \n1(8)\n2(6)\n3(5) ", 1, 1);
@@ -59,65 +60,61 @@ public class QuestionGroup {
     }
 
 //2
-
-
-    //3
-    Question determineQuestion() {
-        for (int i = 0; i < gameLength; i++) {
-            if (easy[i].answeredCorrectly == 2) {
-                return getNextOfType(2);
-            }
-            if (easy[i].answeredCorrectly == 1) {
-                return getNextOfType(1);
-            }
-            if (medium[i].answeredCorrectly == 2) {
-                return getNextOfType(3);
-            }
-            if (medium[i].answeredCorrectly == 1) {
-                return getNextOfType(1);
-            }
-            if (hard[i].answeredCorrectly == 2) {
-                return getNextOfType(3);
-            }
-            if (hard[i].answeredCorrectly == 1) {
-                return getNextOfType(2);
-            }
-        }
-        return ;
-    }
 //3
+    Question determineQuestion() {
 
-//4
-
-    Question getNextOfType(int type) {
-
-        if (type == 1) {
-            for (int i = 0; i < easy.length; i++) {
-                if (easy[i].answeredCorrectly == 0) {
-                    return easy[i];
-                }
+            if (lastQuestionCorrect == false && lastQuestionDifferent == 1) {
+                return getNextOfType(1);
             }
-        }
-        if (type == 2) {
-            for (int i = 0; i < medium.length; i++) {
-                if (easy[i].answeredCorrectly == 0) {
-                    return medium[i];
-                }
+            if (lastQuestionCorrect == true && lastQuestionDifferent == 1) {
+                return getNextOfType(2);
             }
-        }
-        if (type == 3) {
-            for (int i = 0; i < hard.length; i++) {
-                if (easy[i].answeredCorrectly == 0) {
-                    return hard[i];
-                }
+            if (lastQuestionCorrect == true && lastQuestionDifferent == 2) {
+                return getNextOfType(3);
             }
-        }
-        return ();
+            if (lastQuestionCorrect == false && lastQuestionDifferent == 2) {
+                return getNextOfType(1);
+            }
+            if (lastQuestionCorrect == true && lastQuestionDifferent == 3) {
+                return getNextOfType(3);
+            }
+            if (lastQuestionCorrect == false && lastQuestionDifferent == 3) {
+                return getNextOfType(2);
+            }
+            return easy[0];
     }
+    //3
 //4
+        Question getNextOfType ( int type){
+
+            if (type == 1) {
+                for (int i = 0; i < easy.length; i++) {
+                    if (easy[i].answeredCorrectly == 0) {
+                        return easy[i];
+                    }
+                }
+            }
+            if (type == 2) {
+                for (int i = 0; i < medium.length; i++) {
+                    if (medium[i].answeredCorrectly == 0) {
+                        return medium[i];
+                    }
+                }
+            }
+            if (type == 3) {
+                for (int i = 0; i < hard.length; i++) {
+                    if (hard[i].answeredCorrectly == 0) {
+                        return hard[i];
+                    }
+                }
+            }
+            return easy[0];
+        }
+//4
+
 
     //5
-    String computeResult() {
+    void computeResult() {
         int easyCorrect = 0;
         int mediumCorrect = 0;
         int hardCorrect = 0;
@@ -137,39 +134,42 @@ public class QuestionGroup {
             }
         }
 
-    int score = easyCorrect + mediumCorrect + hardCorrect;
 
-        if(score ==27)
+        int score = easyCorrect + mediumCorrect + hardCorrect;
 
-    {
-        System.out.println("You have passed with flying colors, great job, be a scholar.");
+        if (score == 27)
 
-    }
-        if(score >=18&&score< 27)
+        {
+            System.out.println("You have passed with flying colors, great job, be a scholar.");
 
-    {
-        System.out.println("beyond average keep up the great work!!");
-    }
-        if(score< 18&&score >9)
+        }
+        if (score >= 18 && score < 27) {
 
-    {
-        System.out.println("You would have gotten a b for a lettered grade, try harder!!! ");
-    }
-        if(score <=9)
+            System.out.println("beyond average keep up the great work!!");
+        }
+        if (score < 18 && score > 9)
 
-    {
-        System.out.println("You would've gotten a C if this was a letter grade not acceptable.");
-    }
-        if(score ==0)
+        {
+            System.out.println("You would have gotten a b for a lettered grade, try harder!!! ");
+        }
+        if (score <= 9)
 
-    {
-        System.out.println("Math is not your best line of study, please try something else and go into another field!");
+        {
+            System.out.println("You would've gotten a F  if this was a letter grade, NOT ACCEPTABLE.");
+        }
+        if (score == 0)
+
+        {
+            System.out.println("Math is not your best line of study, please try something else and go into another field!");
+        }
     }
 }
+
 
 //5
 
 
-//6
+
+//1
 
 
