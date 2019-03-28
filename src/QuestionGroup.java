@@ -4,7 +4,7 @@ public class QuestionGroup {
     public Question[] medium = new Question[10];
     public Question[] hard = new Question[10];
     int gameLength = 10;
-    int lastQuestionDifferent = 2;
+    int lastQuestionDiff = 2;
     boolean lastQuestionCorrect = false;
 
     public QuestionGroup() {
@@ -63,22 +63,22 @@ public class QuestionGroup {
 //3
     Question determineQuestion() {
 
-            if (lastQuestionCorrect == false && lastQuestionDifferent == 1) {
+            if (lastQuestionCorrect == false && lastQuestionDiff == 1) {
                 return getNextOfType(1);
             }
-            if (lastQuestionCorrect == true && lastQuestionDifferent == 1) {
+            if (lastQuestionCorrect == true && lastQuestionDiff == 1) {
                 return getNextOfType(2);
             }
-            if (lastQuestionCorrect == true && lastQuestionDifferent == 2) {
+            if (lastQuestionCorrect == true && lastQuestionDiff == 2) {
                 return getNextOfType(3);
             }
-            if (lastQuestionCorrect == false && lastQuestionDifferent == 2) {
+            if (lastQuestionCorrect == false && lastQuestionDiff == 2) {
                 return getNextOfType(1);
             }
-            if (lastQuestionCorrect == true && lastQuestionDifferent == 3) {
+            if (lastQuestionCorrect == true && lastQuestionDiff == 3) {
                 return getNextOfType(3);
             }
-            if (lastQuestionCorrect == false && lastQuestionDifferent == 3) {
+            if (lastQuestionCorrect == false && lastQuestionDiff == 3) {
                 return getNextOfType(2);
             }
             return easy[0];
